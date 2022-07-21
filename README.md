@@ -1,61 +1,3 @@
-# 《奔跑吧Linux内核》 第二版配套实验平台
-
-## 奔跑吧第二版配套实验平台
-
-《奔跑吧Linux内核》第二版系列三本书：卷1、卷2以及入门篇，已经出版，读者可以到异步社区、京东、当当等书店购买。
-
-我们还提供丰富的学习资源，下载方法：登陆“奔跑吧linux社区”微信公众号，输入“奔跑吧2”获取下载地址。
-1. 全套实验环境，基于Ubuntu 20.04制作的VMware/VirtualBox虚拟机镜像
-2. 实验指导手册，400多页详细的实验指导手册（入门篇）
-3. 电子课件（入门篇）
-4. 实验参考代码
-5. 插图下载
-6. 勘误
-7. 免费视频
-8. Docker镜像
-9. 实验素材（例如卷2中用到vmcore等）
-
-### 索取课件powerpoint和插图visio版本
-
-奔跑吧入门篇第二版除了准备丰富的教学和学习资料, 我们还准备好了电子课件的powerpoint原稿和
-插图的visio原稿，仅特供给：
-1. 选择奔跑吧作为教辅教材的高校任课老师，请提供课程主页或者开课的相关信息。
-2. 用于机构培训或者企业内部培训，请提供购买30本或者以上图书的购买发票或者购买截图。
-
-请发送邮件给笨叔以及悦叔：
-笨叔：runninglinuxkernel@126.com
-悦叔：chenyuecn@163.com
-
-入门篇课件的pdf和插图jpg版本已经上传到百度网盘，对读者来说已经足够，不必申请PowerPoint和visio版本.
-
-## 《奔跑吧Linux内核》的来由
-笨叔当fae的时候，去请教研发兄弟一些问题，时常会遭到白眼：我也不太懂，某某代码里有，你自己看啦，某某芯片手册有，你自己看啦。
-现在人生活压力忒大，生怕教会了别人，感觉明天就会失业了一样。笨叔觉得，好东西需要记录下来和大家分享，于是有了《奔跑吧linux内核》。
-
-### 奔跑吧面试必考题
-
-你想试试《奔跑吧linux内核》这本书适不适合你，你可以来试试做一下这份卷子，只要考分在90%以下，《奔跑吧Linux内核》就是为您量身打造的。
-
-[奔跑吧面试必考题](./Interview_questions.md)
-
-## 实验平台说明
-本git repo是《奔跑吧Linux内核》第二版卷1卷2以及入门篇三本书的配套实验平台，包含Linux 5.0代码以及书上实验参考代码。
-使用busybox工具制作的最小文件系统，该最小系统仅仅包含了Linux系统最常用的命令，如ls，top等命令。如果要在此最小系统中进行systemtap以及kdump等试验的话，
-我们需要手动编译和安装这些工具，这个过程是相当复杂和繁琐的。为此，我们尝试使用Debian的根文件系统来构造一个小巧而且好用的实验平台。
-在这个实验平台中，读者可以在线安装丰富的软件包，比如kdump，crash，systemtap等工具。这个实验平台具有如下特点：
-1. 使用“O0”来编译内核
-2. 在主机Host中编译内核
-3. 使用QEMU来加载系统
-4. 支持GDB单步调试内核以及Debian系统
-5. 使用ARM64版本的Debian系统的根文件系统
-6. 在线安装Debian软件包
-7. 支持在虚拟机里动态编译内核模块
-8. 支持Host主机和虚拟机共享文件
-
-本实验平台两个镜像：
-1. github：https://github.com/figozhang/runninglinuxkernel_5.0
-2. 腾讯git：https://benshushu.coding.net/public/runninglinuxkernel_5.0/runninglinuxkernel_5.0/git/files
-
 本书推荐的实验环境如下。
 1. 主机硬件平台：Intel x86_84处理器兼容主机。
 2. 主机操作系统：Ubuntu Linux 20.04
@@ -67,27 +9,6 @@
 $ sudo apt update -y
 $ sudo apt install net-tools libncurses5-dev libssl-dev build-essential openssl qemu-system-arm libncurses5-dev gcc-aarch64-linux-gnu git bison flex bc vim universal-ctags cscope cmake python3-dev gdb-multiarch openjdk-13-jre trace-cmd kernelshark bpfcc-tools cppcheck docker docker.io
 ```
-本书配套的实验是在 kmodules 目录下面:  
-1. 奔跑吧进阶篇(卷1和卷2)对应的实验：kmodules/rlk_lab/rlk_senior
-2. 奔跑吧入门篇对应的实验：kmodules/rlk_lab/rlk_basic
-
-## 本书配套的其他资源
-请关注奔跑吧linux社区微信公众号：runninglinuxkernel
-
-## 本书配套的视频课程
-若读者觉得阅读本书的文字版本不过瘾，想看笨叔录制的视频课程，请关注：
-1. 淘宝店：https://shop115683645.taobao.com/
-2. 微店：https://weidian.com/?userid=1692165428
-
-目前上线的配套课程有3个：
-1. 第一季旗舰篇：Linux内存管理
-![image](https://benshushu.coding.net/p/runninglinuxkernel_5.0/d/runninglinuxkernel_5.0/git/raw/rlk_5.0/images/1rd_training.jpg)
-2. 第二季旗舰篇：Linux进程管理、中断管理、锁机制三合一
-![image](https://benshushu.coding.net/p/runninglinuxkernel_5.0/d/runninglinuxkernel_5.0/git/raw/rlk_5.0/images/2rd-training.jpg)
-3. 第三季旗舰篇：ARM64体系结构与编程
-
-全球原创的ARM64实验，全球首个手把手解读ARMv8芯片手册，笨叔带您一起做实验，一起玩树莓派，一起进步！
-![image](https://benshushu.coding.net/p/runninglinuxkernel_5.0/d/runninglinuxkernel_5.0/git/raw/rlk_5.0/images/arm64_training.png)
 
 ## 使用O0编译的内核的好处
 这个runninglinuxkernel内核默认使用GCC的“O0”优化等级来编译的。
@@ -277,10 +198,3 @@ noinintrd sched_debug root=/dev/vda rootfstype=ext4 rw crashkernel=256M loglevel
 
 ### 7. 调试ARM64 Linux内核
 请参考《奔跑吧Linux内核》第二版卷2第3.1章相关内容，里面详细介绍如何使用QEMU+GDB+Eclipse来调试arm64内核。
-
-
-
-## 加入奔跑吧微信技术交流群
-
-我们建立奔跑吧技术交流群，可以先加我们的微信号，请注明加“加奔跑交流群”：
-1. 笨叔微信号：runninglinuxkernel （笨叔工作忙，此微信不闲聊）
